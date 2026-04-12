@@ -260,7 +260,6 @@ article {
     margin-top: 10px;
 }
 /* Get-Started || Apply section */
-
 .cta-container {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -338,7 +337,7 @@ footer {
     flex-direction: column;
     align-items: flex-start;
     justify-content: center;
-    padding-right: 10px;
+    padding-right: 20px;
 }
 
 .footer-social p {
@@ -352,7 +351,7 @@ footer {
     align-items: center;
     justify-content: center;
     gap: 15px;
-    padding-right: 20px;
+    /* padding-right: 20px; */
     font-size: 1.2rem;
 }
 
@@ -529,7 +528,17 @@ footer {
         grid-template-columns: 1fr;
     }
 
-    /* .welcome-container {
-        width: 100%;
-    } */
+    .footer-container {
+        flex-direction: column-reverse;
+    }
+    .footer-social {
+        padding: 20px 0;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+    }
+
+    .footer-copyright {
+        text-align: center;
+    }
 }
