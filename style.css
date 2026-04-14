@@ -169,6 +169,10 @@ iframe:focus-visible {
     padding: 10px 0 10px 0px;
 }
 
+.header .btn-switch {
+    border-radius: 8px;
+}
+
 .header .btn-menu {
     border: none;
     background: none;
