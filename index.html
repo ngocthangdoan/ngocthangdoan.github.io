@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>eCampus IT programming Diploma</title>
-    <link rel="stylesheet" href="style.css?v=1">
+    <link rel="stylesheet" href="style.css?v=2">
     <!-- Favicon of eCampus -->
     <link rel="icon" type="image/png" href="https://cdn.articulate.com/assets/favicons/favicon-32x32.png" sizes="32x32">
     <!-- Poppin - Google font -->
@@ -20,6 +20,12 @@
           <div class="header-container">
             <!-- logo -->
             <a href="index.html" class="header-logo">eCampus IT Programming</a>
+
+            <!-- menu icon -->
+            <button class="btn-menu" aria-label="Open menu" tabindex="-1">
+                <span class="material-symbols-rounded menu-icon">menu</span>
+            </button>
+
             <!-- navigation -->
             <ul class="nav-list">
                 <li><a href="index.html" class="nav-item active">Home</a></li>
@@ -28,11 +34,14 @@
                 <li><a href="#" class="nav-item">Work Experience</a></li>
                 <li><a href="#" class="nav-item">Contact</a></li>
                 <!-- dark/light mode icon -->
-                <li><span class="material-symbols-rounded switch-mode">dark_mode</span></li>
+                <li>
+                    <button class="btn-switch" aria-label="Toggle dark mode">
+                        <span class="material-symbols-rounded switch-mode">dark_mode</span>
+                    </button>
+                </li>
             </ul>
 
-            <!-- menu icon -->
-            <span class="material-symbols-rounded menu-icon">menu</span>
+
         </div>
     </header>
 
@@ -172,6 +181,6 @@
         </div>
     </footer>
 
-    <script src="script.js"></script>
+    <script src="script.js?v=1"></script>
 </body>
 </html>

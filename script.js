@@ -1,5 +1,7 @@
 const darkMode = document.querySelector(".switch-mode");
-const menuIcon = document.querySelector(".menu-icon");
+// const menuIcon = document.querySelector(".menu-icon");
+const btnMenuIcon = document.querySelector(".btn-menu");
+const btnSwitchIcon = document.querySelector(".btn-switch");
 const navList = document.querySelector(".nav-list");
 const navItem = document.querySelectorAll(".nav-item");
 
@@ -13,8 +15,8 @@ if (theme === "light") {
     document.body.classList.remove("dark-mode");
     darkMode.textContent = "dark_mode";
 }
-
-darkMode.addEventListener('click', () => {
+btnSwitchIcon.addEventListener('click', () => {
+// darkMode.addEventListener('click', () => {
     const isDark = document.body.classList.toggle("dark-mode");
     if (isDark) {
         darkMode.textContent = "light_mode";
@@ -24,9 +26,13 @@ darkMode.addEventListener('click', () => {
         localStorage.setItem("theme", "light");
     }
 
+    if (navList.classList.contains("list--vertical")) {
+        navList.classList.remove("list--vertical");
+    }
 })
 
-menuIcon.addEventListener('click', () => {
+btnMenuIcon.addEventListener('click', () => {
+// menuIcon.addEventListener('click', () => {
     navList.classList.toggle("list--vertical");
 })
 
@@ -38,3 +44,16 @@ navItem.forEach((item) => {
         }
     })
 })
+
+function setTabFocusMenuIcon() {
+    if (window.innerWidth < 900) {
+        btnMenuIcon.tabIndex = 0;
+        btnMenuIcon.setAttribute("aria-hidden", "false");
+    } else {
+        btnMenuIcon.tabIndex = -1;
+        btnMenuIcon.setAttribute("aria-hidden", "true");
+    }
+}
+
+setTabFocusMenuIcon();
+window.addEventListener('resize', setTabFocusMenuIcon);
