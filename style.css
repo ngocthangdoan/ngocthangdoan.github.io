@@ -1,9 +1,8 @@
-
 /* Theme Variables */
 :root {
   --color-text: #222;
   --color-text-inverse: #fff;
-/* #00477f */
+
   --color-bg-body: #f7f9fc;
   --color-bg-surface: #fff;
   --color-bg-header: #1f4e8c;
@@ -23,7 +22,7 @@
   --color-shadow-strong: 0 5px 10px rgba(0, 0, 0, 0.08);
 }
 
-/* Example dark mode for later */
+/* dark mode - theme variables */
 body.dark-mode {
   --color-text: #f1f5f9;
   --color-text-inverse: #ffffff;
@@ -62,9 +61,9 @@ body {
     color: var(--color-text);
     background: var(--color-bg-body);
     overflow-x: hidden;
-    /* position: relative; */
 }
 
+/* Set value for common attributes */
 .header-container {
     width: min(1250px, 95vw);
     margin: 0 auto;
@@ -73,17 +72,33 @@ body {
 .container {
     width: min(1200px, 90vw);
     margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    margin: 2rem auto;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem 0;
 }
 
 h1, h3, h5 {
     color: var(--color-primary);
 }
 
+h3 {
+    font-size: 1.8rem;
+    margin-bottom: 2rem;
+}
+
+h5 {
+    font-size: 1.4rem;
+    margin-bottom: 10px;
+}
+
 p {
     color: var(--color-text)
 }
 
-/* set border when focus by Tab key */
+/* set border when focus by keyborad */
 a:focus-visible,
 button:focus-visible,
 iframe:focus-visible {
@@ -167,7 +182,7 @@ iframe:focus-visible {
     caret-color: transparent;
 }
 
-/* HERO HOME*/
+/* HERO - HOME PAGE*/
 .hero {
     display: flex;
     align-items: center;
@@ -213,6 +228,7 @@ iframe:focus-visible {
     background: var(--color-primary-dark);
 }
 
+/* Hero - Home page */
 .hero-container img {
     display: block;
     max-width: 100%;
@@ -222,25 +238,7 @@ iframe:focus-visible {
     box-shadow: var(--color-shadow);
 }
 
-.container {
-    display: flex;
-    flex-direction: column;
-    margin: 2rem auto;
-    align-items: center;
-    justify-content: center;
-    padding: 2rem 0;
-}
-
-h3 {
-    font-size: 1.8rem;
-    margin-bottom: 2rem;
-}
-
-h5 {
-    font-size: 1.4rem;
-    margin-bottom: 10px;
-}
-
+/* info, highlight, steps section  */
 .info-list, .steps-list {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -284,7 +282,8 @@ article {
     font-size: 1.2rem;
     margin-top: 10px;
 }
-/* Get-Started || Apply section */
+
+/* Get-Started/Apply section */
 .cta-container {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -340,6 +339,7 @@ footer {
     background: var(--color-bg-header);
 }
 
+
 .footer-container {
     max-width: 1200px;
     display: flex;
@@ -348,6 +348,7 @@ footer {
     margin: 0 auto;
 }
 
+/* Copyright - Footer */
 .footer-copyright {
     padding: 1rem;
 }
@@ -357,6 +358,7 @@ footer {
     padding: 3px;
 }
 
+/* Social media - Footer */
 .footer-social {
     display: flex;
     flex-direction: column;
@@ -376,7 +378,6 @@ footer {
     align-items: center;
     justify-content: center;
     gap: 15px;
-    /* padding-right: 20px; */
     font-size: 1.2rem;
 }
 
@@ -392,7 +393,7 @@ footer {
 }
 
 /* GET-STARTED */
-/* section hero - get started */
+/* Hero section - Get Started page*/
 .hero-get-started {
     background: var(--color-bg-surface);
 }
@@ -409,8 +410,8 @@ footer {
     padding-top: 10px;
     margin: 0 auto;
 }
-/* Section Video - get started */
 
+/* Welcome Video section - Get Started page */
 .video-container {
     z-index: 1;
     position: relative;
@@ -430,7 +431,7 @@ footer {
     z-index: 1;
 }
 
-/* Section Helpful Links - get started */
+/* Helpful Links Section- get started */
 .helpful-list {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -472,9 +473,9 @@ footer {
     width: 100%;
 }
 
+/* Table screen */
 @media (max-width: 900px) {
-
-    /* when menu appear, all rest compoent are blur and can not be clickble */
+    /* when vertical-menu open, background is dark and inactive */
     body::before {
         content:"";
         position: fixed;
@@ -495,25 +496,29 @@ footer {
         display: none;
     }
 
-    body:has(.header .list--vertical) .nav-list li:has(span) {
-    border-top: 1px solid var(--color-border);
+    /* set divider for dark-mode icon in vertical-menu */
+    body:has(.header .list--vertical) .nav-list li:has(.btn-switch) {
+        border-top: 1px solid var(--color-border);
     }
 
+    /* set 02 column for sections */
     .info-list, .steps-list {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         gap: 20px;
-
     }
 
+    /* show hamburger menu */
     .header .menu-icon {
         display: block;
     }
 
+    /* set layer for header */
     body:has(.header .list--vertical) .header {
         z-index: 20;
     }
 
+    /* hamburger menu */
     .header .nav-list {
         display: flex;
         position: fixed;
@@ -543,7 +548,9 @@ footer {
     }
 }
 
+/* mobile screen */
 @media (max-width: 768px) {
+    /* set 01 colume for section */
     .hero-container,
     .info-list,
     .steps-list,
@@ -553,6 +560,7 @@ footer {
         grid-template-columns: 1fr;
     }
 
+    /* Footer */
     .footer-container {
         flex-direction: column-reverse;
     }

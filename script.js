@@ -1,22 +1,21 @@
 const darkMode = document.querySelector(".switch-mode");
-// const menuIcon = document.querySelector(".menu-icon");
 const btnMenuIcon = document.querySelector(".btn-menu");
 const btnSwitchIcon = document.querySelector(".btn-switch");
 const navList = document.querySelector(".nav-list");
 const navItem = document.querySelectorAll(".nav-item");
 
+// get "theme" from localStorage
 const theme = localStorage.getItem("theme");
 if (theme === "dark") {
     document.body.classList.add("dark-mode");
     darkMode.textContent = "light_mode";
-}
-
-if (theme === "light") {
+} else if (theme === "light") {
     document.body.classList.remove("dark-mode");
     darkMode.textContent = "dark_mode";
 }
+
+// Event: change dark mode, light mode
 btnSwitchIcon.addEventListener('click', () => {
-// darkMode.addEventListener('click', () => {
     const isDark = document.body.classList.toggle("dark-mode");
     if (isDark) {
         darkMode.textContent = "light_mode";
@@ -26,16 +25,18 @@ btnSwitchIcon.addEventListener('click', () => {
         localStorage.setItem("theme", "light");
     }
 
+    // hidden vertical-menu when click dark-mode icon
     if (navList.classList.contains("list--vertical")) {
         navList.classList.remove("list--vertical");
     }
 })
 
+// toggle vertical-menu
 btnMenuIcon.addEventListener('click', () => {
-// menuIcon.addEventListener('click', () => {
     navList.classList.toggle("list--vertical");
 })
 
+// Highlight the selected item and make the previously selected item inactive.
 navItem.forEach((item) => {
     item.addEventListener('click', ()=>{
         if (!item.classList.contains("active")) {
@@ -45,6 +46,7 @@ navItem.forEach((item) => {
     })
 })
 
+// set tabIndex for menu-icon in large or small screen
 function setTabFocusMenuIcon() {
     if (window.innerWidth < 900) {
         btnMenuIcon.tabIndex = 0;
